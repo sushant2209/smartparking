@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Parking Spot</title>
+</head>
+<body>
+    <h1>Book Parking Spot</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Book Spot</button>
+    </form>
+</body>
+</html>

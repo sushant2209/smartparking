@@ -1,0 +1,15 @@
+<!-- add_parking_spot.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Parking Spot</title>
+</head>
+<body>
+    <h2>Add Parking Spot</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Parking Spot</button>
+    </form>
+</body>
+</html>

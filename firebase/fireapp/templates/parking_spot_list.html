@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parking Spots</title>
+</head>
+<body>
+    <h1>Parking Spots</h1>
+    <ul>
+        {% for spot in parking_spots %}
+            <li>
+                {{ spot.spot_number }}
+                {% if spot.is_available %}
+                    (<a href="{% url 'fireapp:book_parking_spot' spot.id %}">Book</a>)
+                {% else %}
+                    (Occupied)
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add New Parking Spot</h2>
+    <form action="{% url 'fireapp:add_parking_spot' %}" method="post">
+        {% csrf_token %}
+        <label for="spot_number">Spot Number:</label>
+        <input type="text" id="spot_number" name="spot_number" required>
+        <button type="submit">Add Spot</button>
+    </form>
+</body>
+</html>
